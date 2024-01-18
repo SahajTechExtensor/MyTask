@@ -1,0 +1,31 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: darkolivegreen;
+}
+
+#containar{
+    padding: 22px;
+    width: 350px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 40px;
+    border: 2px solid blueviolet;
+
+   
+}
+
+form{
+    display: inline-block;
+}
+button{
+    padding: 5 10;
+
+}
+
+li:hover{
+    cursor: pointer;
+}
+.del{
+    text-decoration: line-through;
+}

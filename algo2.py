@@ -1,5 +1,5 @@
 def inToPost(infix_expression):
-    precedence = {'+': 2, '-': 1, '*': 3, '/': 4}
+    precedence = { '-': 1, '+': 2, '*': 3, '/': 4}
     stack = []
     postfixExp = []
 
@@ -11,7 +11,7 @@ def inToPost(infix_expression):
         elif symbol == ')':
             while stack and stack[-1] != '(':
                 postfixExp.append(stack.pop())
-            stack.pop()  # Pop the opening parenthesis
+            stack.pop() 
         else:
             while stack and stack[-1] != '(' and precedence.get(symbol, 0) <= precedence.get(stack[-1], 0):
                 postfixExp.append(stack.pop())
@@ -43,9 +43,9 @@ def evalPost(post):
 
 
 
-expression = "( 5 * 4 - ( 12 / 4 ) + 6 * 1 )"
-#expression = "( ( 15 + 3 ) * 2 - ( 5 / 2 ) + ( 10 - 4 ) )"
-symbole = expression.split()
+#exp = "( 5 * 4 - ( 12 / 4 ) + 6 * 1 )"
+exp = "( ( 15 + 3 ) * 2 - ( 5 / 2 ) + ( 10 - 4 ) )"
+symbole = exp.split()
 postfix = inToPost(symbole)
 print(postfix)
 
