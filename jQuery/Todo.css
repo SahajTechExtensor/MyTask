@@ -10,17 +10,24 @@ body{
     height: auto;
     margin: 0 auto;
     margin-top: 40px;
-    border: 2px solid blueviolet;
-
-   
+    border: 2px solid blueviolet;   
 }
 
 form{
     display: inline-block;
+    margin: auto 10%;
+
 }
 button{
-    padding: 5 10;
+    padding: 0 10;
 
+}
+ul{
+    padding-left: 20%;
+}
+
+li{
+  margin: 5px;   
 }
 
 li:hover{
