@@ -20,7 +20,6 @@ $(document).ready(function(){
     })
 
 
-
     $(document).on('dblclick','li',function(){
         // $(this).toggleClass('.del').remove();
          $(this).toggleClass('.del').fadeOut('slow');
