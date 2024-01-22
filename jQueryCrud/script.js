@@ -1,18 +1,18 @@
 $(document).ready(function () {
     alert("workingg!.");
+    var SCBtn = "<button class='btn btn-sm btn-success btn-save'> Save</button> || <button class='btn btn-sm btn-success btn-cancel'> Cancel</button>";
     $("#addNew").click(function () {
         alert("bten working!")
         var enty = "<tr>" +
             "<td class='Name'> <input type='text' class='name' placeholder='Enter name'></td>" +
             "<td class='City'><input type='text' placeholder='Enter Address' name='Address' class='Address'> </td>" +
             "<td class='Mobile'><input type='text' name='mobile' class='mobile' placeholder='Enter Mobile no.'> </td>" +
-            "<td class='Option'><button class='btn btn-sm btn-success btn-save'> Save</button> || <button class='btn btn-sm btn-success btn-cancel'> Cancel</button></td><tr>";
+            "<td class='Option'>"+SCBtn+"</td></tr>";
         $("table tbody").append(enty);
     })
-
-    $('table').on('click', '.btn-save', function () {
+    $('table').on('click', '.btn-save', function Zxd() {
         alert("bten working!")
-        var EDBtn = "<button class='btn btn-success btn-sm btn-edit' > Edit </button>  <button class='btn btn-danger btn-sm' > Delete </button> ";
+        var EDBtn = "<button class='btn btn-success btn-sm btn-edit' > Edit </button>  <button class='btn btn-danger btn-sm btn-del' > Delete </button> ";
         const name = $(this).parent().parent().find(".name").val();
         $(this).parent().parent().find(".Name").html("" + name + "");
         const City = $(this).parent().parent().find(".Address").val();
@@ -21,6 +21,44 @@ $(document).ready(function () {
         $(this).parent().parent().find(".Mobile").html("" + mobile + "");
         $(this).parent().parent().find(".Option").html(EDBtn);
     })
+
+
+
+    $('table').on('click', '.btn-cancel', function () {
+        $(this).parent().parent().remove();
+    })
+
+
+    // $('table').on('click', '.btn-edit', function(){
+
+    // })
+
+
+    $('table').on('click', '.btn-del', function () {
+        $(this).parent().parent().remove();
+        // console.log(s);
+    })
+    // ========================================
+
+
+
+    $('table').on('click', '.btn-edit', function () {
+          const name = $(this).parent().parent().find(".Name").html();
+        $(this).parent().parent().find(".Name").html("<input type='text' value='" + name + "' class='form-control name' placeholder='Enter Name'/>");
+
+        const city = $(this).parent().parent().find(".City").html();
+        $(this).parent().parent().find(".City").html("<input type='text' value='" + city + "' class='form-control Address' placeholder='Enter City'/>");
+
+        const mobile = $(this).parent().parent().find(".Mobile").html();
+        $(this).parent().parent().find(".Mobile").html("<input type='text' value='" + mobile + "' class='form-control mobile' placeholder='Enter Mobile'/>");
+        
+        $(this).parent().parent().find(".Option").html(SCBtn);
+
+    })
+
+
+
+
 
 
 })
