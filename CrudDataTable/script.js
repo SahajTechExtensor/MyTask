@@ -1,5 +1,32 @@
 $(document).ready(function () {
-    const table = $('.table').DataTable();
+     var groupColumn=2;
+     
+    const table = $('.table').DataTable({
+        columnDefs: [{ visible: true, targets: groupColumn }],
+        order: [[groupColumn, 'asc']],
+        displayLength: 25,
+        drawCallback: function (settings) {
+            var api = this.api();
+            var rows = api.rows({ page: 'current' }).nodes();
+            var last = null;
+     
+            api.column(groupColumn, { page: 'current' })
+                .data()
+                .each(function (group, i) {
+                    if (last !== group) {
+                        $(rows)
+                            .eq(i)
+                            .before(
+                                '<tr class="group"><td colspan="5">' +
+                                    group +
+                                    '</td></tr>'
+                            );
+     
+                        last = group;
+                    }
+                });
+        }
+    });
     loadData();
     $("form").on("submit", function (event) {
         event.preventDefault();
@@ -84,34 +111,22 @@ $(document).ready(function () {
     }
 
     $('#nams').click(function () {
-        var groupColumn = 2;
-        var table = $('.table').DataTable({
-            columnDefs: [{ visible: false, targets: groupColumn }],
-            order: [[groupColumn, 'asc']],
-            displayLength: 25,
-            drawCallback: function (settings) {
-                var api = this.api();
-                var rows = api.rows({ page: 'current' }).nodes();
-                var last = null;
-
-                api.column(groupColumn, { page: 'current' })
-                    .data()
-                    .each(function (group, i) {
-                        if (last !== group) {
-                            $(rows)
-                                .eq(i)
-                                .before(
-                                    '<tr class="group"><td colspan="5">' +
-                                    group +
-                                    '</td></tr>'
-                                );
-
-                            last = group;
-                        }
-                    });
-            }
-        });
+        groupColumn =0;
+        table.draw();
+            
+    });
+    $('#Rolees').click(function () {
+        groupColumn =3;
+        table.draw();
+            
+    });
+    $('#Ads').click(function () {
+        groupColumn =1;
+        table.draw();
+            
     });
 
-})
+
+
+});
 

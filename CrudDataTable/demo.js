@@ -1,8 +1,7 @@
 var groupColumn = 2;
-var table = $('#example').DataTable({
+$('#example').DataTable({
     columnDefs: [{ visible: false, targets: groupColumn }],
     order: [[groupColumn, 'asc']],
-    displayLength: 25,
     drawCallback: function (settings) {
         var api = this.api();
         var rows = api.rows({ page: 'current' }).nodes();
