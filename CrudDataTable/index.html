@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD With jQuery</title>
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <h1>jQuery Data Table </h1>
+        <form action="" class="form">
+            <div class="form-group">
+            <input id="txtId" name="txtId" type="hidden" class="form-control txt">
+            <input type="text" class="name" name="name" placeholder="Enter name">
+            <input type="text" placeholder="Enter Address" name="Address" class="Address">
+            <input type="text" name="mobile" class="mobile" placeholder="Enter Mobile no.">
+            <select name="role" class="role">
+                <option selected>Choose Role</option>
+                <option value="HR">HR</option>
+                <option value="Administrative">Administrative</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Sales">Sales</option>
+            </select>
+        </div>
+            <input type="submit" name="submit" value="Submit" id="submit" class="btn btn-primary mb-2">
+        </form>
+        <button type="button" class="btn btn-secondary" id="btnClear">Clear</button>
+        <div class="text-center">
+            <h4>Group By</h4>
+            <button type="button" class="btn btn-secondary" id="nams">Name</button>
+            <button type="button" class="btn btn-secondary" id="Rolees">Role</button>
+            <button type="button" class="btn btn-secondary" id="Ads">Address</button>
+        </div>
+    </div>
+    
+
+    <div class="container" style="margin-top:30px">
+
+        <table class="table table-hover">
+            <thead class="table-secondary">
+                <tr>
+                    <td class="name">Name</td>
+                    <td class="Address">Address</td>
+                    <td class="Mobile">Mobile</td>
+                    <td class="Roles">Role</td>
+                    <!-- <td class="Option">Option</td> -->
+                </tr>
+            </thead>
+            <tbody class="table-striped">
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
+
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
